@@ -52,6 +52,10 @@ PRIVATE_KEY="$( awk 1 ORS='\\\n' /tmp/sd_readonly_cert.pub )"
 PUBLIC_KEY="$( cat /tmp/sd_readonly_cert.pub )"
 rm -f /tmp/sd_readonly_cert*
 
+echo -e "Create a new deploy key in your sensitive dotfiles repository: GitHub Repository -> Settings -> Deploy keys -> Add deploy key\n"
+echo -e "\tTitle: Sensitive Dotfiles Installation Key"
+echo -e "\tKey: $PUBLIC_KEY\n"
+
 echo -e "$PRIVATE_KEY" > /tmp/sd_readonly_cert
 chmod 600 /tmp/sd_readonly_cert
 GIT_SSH_COMMAND="ssh -i /tmp/sd_readonly_cert" git clone "git@github.com:$USERNAME/$REPOSITORY.git" ~/.homesick/repos/sd
