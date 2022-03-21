@@ -59,6 +59,6 @@ Make sure you have [homeshick installed](https://github.com/andsens/homeshick/wi
    ```bash
    homeshick cd $SENSITIVE_DOTFILES_REPO
    git add -A
-   git commit -m "track all sensitive dotfiles"
+   git commit -m "initialize sensitive dotfiles"
    git push -u origin main
    ```

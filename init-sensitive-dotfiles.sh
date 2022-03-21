@@ -67,6 +67,8 @@ done
 [ -z "$USERNAME" ] && echo -e "Please provide your GitHub username to the --username parameter!" >&2 && exit 1
 [ -z "$REPOSITORY" ] && echo -e "Please provide the name of your sensitive dotfiles GitHub repository to the --repository parameter!" >&2 && exit
 
+rm -rf ".git/" &>/dev/null
+git init >/dev/null
 git remote set-url origin "git@github.com:$USERNAME/$REPOSITORY.git"
 
 SD_READONLY_CERT_PATH="/tmp/sd_readonly_cert"
