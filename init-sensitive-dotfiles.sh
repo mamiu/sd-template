@@ -17,6 +17,11 @@ if ! [ -x "$HOME/.homesick/repos/homeshick/bin/homeshick" ]; then
   exit 1
 fi
 
+if ! [ -x "$(command -v ssh-keygen)" ]; then
+  echo "ERROR: ssh-keygen must be installed!" >&2
+  exit 1
+fi
+
 while [ $# -gt 0 ]; do
     case "$1" in
         -u|--username)
