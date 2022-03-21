@@ -63,7 +63,6 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-
 [ -z "$USERNAME" ] && echo -e "Please provide your GitHub username to the --username parameter!" >&2 && exit 1
 [ -z "$REPOSITORY" ] && echo -e "Please provide the name of your sensitive dotfiles GitHub repository to the --repository parameter!" >&2 && exit
 
@@ -74,16 +73,13 @@ git remote add origin "git@github.com:$USERNAME/$REPOSITORY.git"
 SD_READONLY_CERT_PATH="/tmp/sd_readonly_cert"
 
 ssh-keygen -t rsa -b 4096 -C "$USERNAME@sensitive-dotfiles" -P "" -f $SD_READONLY_CERT_PATH <<< y &>/dev/null
-# awk 'BEGIN{printf "echo -e \""}{print $0}END{printf "\" > $SD_READONLY_CERT_PATH\n"}' ORS='\\\n' $SD_READONLY_CERT_PATH
 PRIVATE_KEY="$( awk 1 ORS='\\n' $SD_READONLY_CERT_PATH )"
 PUBLIC_KEY="$( cat $SD_READONLY_CERT_PATH.pub )"
 rm -f $SD_READONLY_CERT_PATH*
 
-
 echo -e "\nCreate a new deploy key in your sensitive dotfiles repository: GitHub Repository -> Settings -> Deploy keys -> Add deploy key\n"
 echo -e "\t${BOLD_START}Title:${BOLD_END} Sensitive Dotfiles Installation Key"
 echo -e "\t${BOLD_START}Key:${BOLD_END} $PUBLIC_KEY\n"
-
 
 cat > ./README.md << EOF
 
