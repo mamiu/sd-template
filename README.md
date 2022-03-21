@@ -47,6 +47,8 @@ Make sure you have [homeshick installed](https://github.com/andsens/homeshick/wi
    homeshick track $SENSITIVE_DOTFILES_REPO <FILENAME>
    ```
 
+   > E.g. `homeshick track $SENSITIVE_DOTFILES_REPO ~/.ssh/id_rsa*`
+
 7. Commit and push all sensitive dotfiles to your sensitive dotfiles repository on GitHub:
 
    ```bash
