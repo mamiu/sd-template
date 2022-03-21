@@ -103,5 +103,10 @@ export HISTCONTROL=ignorespace
 \`\`\`
 EOF
 
-mkdir home
+if [ ! -d "./home" ]; then
+    mkdir home
+fi
+if [ ! -d "$HOME/.ssh" ]; then
+    mkdir -p $HOME/.ssh
+fi
 ssh-keyscan github.com >> ~/.ssh/known_hosts &>/dev/null

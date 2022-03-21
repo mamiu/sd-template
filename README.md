@@ -12,11 +12,16 @@ Make sure you have [homeshick installed](https://github.com/andsens/homeshick/wi
 
 1. Provide your GitHub username and choose a name for your sensitive dotfiles repository:
 
+   For **bash** / **zsh** shell:
+
    ```bash
-   # For bash / zsh shell:
    GITHUB_USERNAME="username"
    SENSITIVE_DOTFILES_REPO="sd"
-   # For fish shell:
+   ```
+
+   For **fish** shell:
+
+   ```bash
    set GITHUB_USERNAME "username"
    set SENSITIVE_DOTFILES_REPO "sd"
    ```
