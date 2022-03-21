@@ -92,15 +92,23 @@ cat > ./README.md << EOF
 
 Copy and paste the following commands into a terminal on your new or clean installed system (only \`sh\`, \`bash\` and \`fish\` shells are supported):
 
-\`\`\`bash
-export HISTCONTROL=ignorespace
- /bin/echo -e "$PRIVATE_KEY" > $SD_READONLY_CERT_PATH
- chmod 600 $SD_READONLY_CERT_PATH
- mkdir -p $HOME/.ssh
- ssh-keyscan github.com >> ~/.ssh/known_hosts
- GIT_SSH_COMMAND="ssh -i $SD_READONLY_CERT_PATH" git clone "git@github.com:$USERNAME/$REPOSITORY.git" ~/.homesick/repos/$REPOSITORY && ~/.homesick/repos/homeshick/bin/homeshick link $REPOSITORY
- rm -f $SD_READONLY_CERT_PATH
-\`\`\`
+1. Make sure that the history is turned off (otherwise the key to this repo will be stored in your shell's history file):
+
+   \`\`\`bash
+   export fish_history=""
+   export HISTCONTROL="ignorespace"
+   \`\`\`
+
+2. Install the sensitive dotfiles of this repository by running these commands (all at once or individually):
+
+   \`\`\`bash
+    /bin/echo -e "$PRIVATE_KEY" > $SD_READONLY_CERT_PATH
+    chmod 600 $SD_READONLY_CERT_PATH
+    mkdir -p $HOME/.ssh
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+    GIT_SSH_COMMAND="ssh -i $SD_READONLY_CERT_PATH" git clone "git@github.com:$USERNAME/$REPOSITORY.git" ~/.homesick/repos/$REPOSITORY && ~/.homesick/repos/homeshick/bin/homeshick link $REPOSITORY
+    rm -f $SD_READONLY_CERT_PATH
+   \`\`\`
 EOF
 
 if [ ! -d "./home" ]; then
