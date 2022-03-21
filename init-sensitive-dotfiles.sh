@@ -98,7 +98,9 @@ Copy and paste the following commands into a terminal on your new or clean insta
 export HISTCONTROL=ignorespace
  /bin/echo -e "$PRIVATE_KEY" > $SD_READONLY_CERT_PATH
  chmod 600 $SD_READONLY_CERT_PATH
- GIT_SSH_COMMAND="ssh -i $SD_READONLY_CERT_PATH" git clone "git@github.com:$USERNAME/$REPOSITORY.git" ~/.homesick/repos/sd && ~/.homesick/repos/homeshick/bin/homeshick link $REPOSITORY
+ mkdir -p $HOME/.ssh
+ ssh-keyscan github.com >> ~/.ssh/known_hosts
+ GIT_SSH_COMMAND="ssh -i $SD_READONLY_CERT_PATH" git clone "git@github.com:$USERNAME/$REPOSITORY.git" ~/.homesick/repos/$REPOSITORY && ~/.homesick/repos/homeshick/bin/homeshick link $REPOSITORY
  rm -f $SD_READONLY_CERT_PATH
 \`\`\`
 EOF
