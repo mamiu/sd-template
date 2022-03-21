@@ -69,7 +69,7 @@ done
 
 rm -rf ".git/" &>/dev/null
 git init >/dev/null
-git remote set-url origin "git@github.com:$USERNAME/$REPOSITORY.git"
+git remote add origin "git@github.com:$USERNAME/$REPOSITORY.git"
 
 SD_READONLY_CERT_PATH="/tmp/sd_readonly_cert"
 
@@ -113,4 +113,4 @@ fi
 if [ ! -d "$HOME/.ssh" ]; then
     mkdir -p $HOME/.ssh
 fi
-ssh-keyscan github.com >> ~/.ssh/known_hosts &>/dev/null
+ssh-keyscan github.com >> $HOME/.ssh/known_hosts &>/dev/null
