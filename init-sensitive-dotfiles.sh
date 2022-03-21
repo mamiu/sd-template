@@ -95,3 +95,5 @@ export HISTCONTROL=ignorespace
  rm -f $SD_READONLY_CERT_PATH
 \`\`\`
 EOF
+
+mkdir home
