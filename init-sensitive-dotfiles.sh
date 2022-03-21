@@ -113,4 +113,4 @@ fi
 if [ ! -d "$HOME/.ssh" ]; then
     mkdir -p $HOME/.ssh
 fi
-ssh-keyscan github.com >> $HOME/.ssh/known_hosts &>/dev/null
+ssh-keyscan github.com >> $HOME/.ssh/known_hosts 2>/dev/null
