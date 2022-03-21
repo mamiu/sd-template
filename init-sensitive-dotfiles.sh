@@ -80,7 +80,7 @@ cat > ./README.md << EOF
 > This file was auto-generated with the \`./init-sensitive-dotfiles.sh\` script on $( date +'%F %H:%M' ).  
 > Do **NOT** edit this file manually!
 
-Copy and paste the following commands into your terminal (only \`sh\`, \`bash\` and \`fish\` shell are supported):
+Copy and paste the following commands into your terminal to install the sensitive dotfiles on a freshly setup system (only \`sh\`, \`bash\` and \`fish\` shell are supported):
 
 \`\`\`bash
 export HISTCONTROL=ignorespace
