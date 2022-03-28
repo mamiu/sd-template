@@ -10,20 +10,13 @@ Make sure you have [homeshick installed](https://github.com/andsens/homeshick/wi
 
 ## Usage
 
+This guide works with `bash`, `zsh` and `fish`.
+
 1. Provide your GitHub username and choose a name for your sensitive dotfiles repository:
 
-   For **bash** / **zsh** shell:
-
    ```bash
-   GITHUB_USERNAME="username"
-   SENSITIVE_DOTFILES_REPO="sd"
-   ```
-
-   For **fish** shell:
-
-   ```bash
-   set GITHUB_USERNAME "username"
-   set SENSITIVE_DOTFILES_REPO "sd"
+   export GITHUB_USERNAME="username"
+   export SENSITIVE_DOTFILES_REPO="sd"
    ```
 
 2. Clone this repository into `$HOME/.homesick/repos/<NAME_OF_YOUR_SENSITIVE_DOTFILES_REPO>`:
